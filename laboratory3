@@ -1,0 +1,32 @@
+package lab3;
+
+public class savings {
+    private static String нэр;
+    private static String валют;
+    private static double жилийн_хүү;
+    private static int хугацаа_сараар;
+    private static double эхний_үлдэгдэл;
+    private static double Хуримтлагдсан_хүү;
+    private static double эцсийн_үлдэгдэл;
+    public static void main(String[] args) {
+      нэр = "Алтан түлхүүр хадгаламж";
+      валют = "$";
+      жилийн_хүү = 20.1;
+      хугацаа_сараар = 11;
+      эхний_үлдэгдэл = 7000000.0;
+        savingscalcaccrued(эхний_үлдэгдэл);
+        savingscalc(эхний_үлдэгдэл);
+        savingsreport();
+    }
+    private static void savingscalc(double эхний_үлдэгдэл) {
+        эцсийн_үлдэгдэл =эхний_үлдэгдэл + Хуримтлагдсан_хүү;
+    }
+    private static void savingscalcaccrued(double эхний_үлдэгдэл) {
+        Хуримтлагдсан_хүү =(эхний_үлдэгдэл * (жилийн_хүү / 12) *хугацаа_сараар) / 100;
+    }
+    public static void savingsreport() {
+        System.out.println("Та " + нэр + "-д "+ эхний_үлдэгдэл + валют+ "-ийг " + хугацаа_сараар+ " сарын хугацаатай, жилийн "+ жилийн_хүү + "%-ийн хүүтэй хадгалуулбал:");
+        System.out.println("үлдэгдэл: "+ эцсийн_үлдэгдэл+ валют + " болно.");
+        System.out.println("Хуримтлагдсан хүү: "+ Хуримтлагдсан_хүү+ валют + " байна.");
+    }
+}
