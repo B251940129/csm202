@@ -1,0 +1,21 @@
+package lab2;
+public class lab2 {
+		public static void main(String[] args) {
+				int R = 100;
+				int Bus = R * 3;
+				System.out.println(R);
+				System.out.println(Bus);
+				int too1 = 1;
+				int too2 = 9;
+				System.out.println((too1+too2)/2);
+				System.out.println(Math.sqrt(too1*too2));
+				int x1 = -3;
+				int x2 = 3;
+				int x3 = 6;
+				int y1 = -2;
+				int y2 = 5;
+				int y3 = -4;
+				double Area= 0.5 * (x1 * y2 + x2 * y3 + x3 * y1 -x1 * y3 - x2 * y1 - x3 * y2);
+				System.out.println(Math.abs(Area));
+		}
+}
