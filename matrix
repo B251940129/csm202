@@ -1,0 +1,123 @@
+import java.util.Scanner;
+
+class Matrix {
+    private int[][] operand1;
+    private int[][] operand2;
+    private String operator;
+    public Matrix(int[][] operand1, int[][] operand2, String operator) {
+        this.operand1 = operand1;
+        this.operand2 = operand2;
+        this.operator = operator;
+    }
+    private int[][] addition(int[][] a, int[][] b) {
+        int row = a.length;
+        int col = a[0].length;
+        int[][] result = new int[row][col];
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result[i][j] = a[i][j] + b[i][j];
+            }
+        }
+        return result;
+    }
+    private int[][] subtraction(int[][] a, int[][] b) {
+        int row = a.length;
+        int col = a[0].length;
+        int[][] result = new int[row][col];
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result[i][j] = a[i][j] - b[i][j];
+            }
+        }
+        return result;
+    }
+    private int[][] multiplication(int[][] a, int[][] b) {
+        int row = a.length;
+        int col = b[0].length;
+        int[][] result = new int[row][col];
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result[i][j] = 0;
+                for (int k = 0; k < a[0].length; k++) {
+                    result[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return result;
+    }
+    public void chooseOperation() {
+        int[][] result;
+        switch (operator) {
+            case "+":
+                result = addition(operand1, operand2);
+                printMatrix(result, "Addition");
+                break;
+            case "-":
+                result = subtraction(operand1, operand2);
+                printMatrix(result, "Subtraction");
+                break;
+            case "*":
+                result = multiplication(operand1, operand2);
+                printMatrix(result, "Multiplication");
+                break;
+            default:
+                System.out.println("Invalid operator!");
+                return;
+        }
+    }
+    private void printMatrix(int[][] matrix, String type) {
+        int row = matrix.length;
+        int col = matrix[0].length;
+        System.out.println(type + " Matrix is: Size(" + row + "x" + col + ")");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Choose an operation:");
+        String op = sc.next();
+        System.out.println("Insert the Size of 1st Matrix:");
+        int r1 = sc.nextInt();
+        int c1 = sc.nextInt();
+        int[][] m1 = new int[r1][c1];
+        System.out.println("Enter the elements of the 1st Matrix: Size (" + r1 + "x" + c1 + ")");
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c1; j++) {
+                m1[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("Insert the Size of 2nd Matrix:");
+        int r2 = sc.nextInt();
+        int c2 = sc.nextInt();
+        if (op.equals("+") || op.equals("-")) {
+            if (r1 != r2 || c1 != c2) {
+                System.out.println("Error: Matrix sizes must be equal!");
+                return;
+            }
+        }
+        if (op.equals("*")) {
+            if (c1 != r2) {
+                System.out.println("Error: Column of Matrix1 must equal Row of Matrix2!");
+                return;
+            }
+        }
+        int[][] m2 = new int[r2][c2];
+        System.out.println("Enter the elements of the 2nd Matrix: Size (" + r2 + "x" + c2 + ")");
+        for (int i = 0; i < r2; i++) {
+            for (int j = 0; j < c2; j++) {
+                m2[i][j] = sc.nextInt();
+            }
+        }
+        Matrix calc = new Matrix(m1, m2, op);
+        calc.chooseOperation();
+    }
+}
