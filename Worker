@@ -1,0 +1,25 @@
+package lab10;
+	public class Worker extends Person {
+	    private String ажилтныКод;
+	    private String салбарынНэр;
+	    private String ажилдОрсонОгноо;
+
+	    public Worker(String овог, String нэр, String регистерийнДугаар, String төрсөнӨдөр,
+	                  String ажилтныКод, String салбарынНэр, String ажилдОрсонОгноо) {
+	        this.овог = овог;
+	        this.нэр = нэр;
+	        this.регистерийнДугаар = регистерийнДугаар;
+	        this.төрсөнӨдөр = төрсөнӨдөр;
+	        this.ажилтныКод = ажилтныКод;
+	        this.салбарынНэр = салбарынНэр;
+	        this.ажилдОрсонОгноо = ажилдОрсонОгноо;
+	    }
+	    public void info() {
+	        super.info();
+	        System.out.println("Ажилтны код: " + ажилтныКод);
+	        System.out.println("Салбар: " + салбарынНэр);
+	        System.out.println("Ажилд орсон: " + ажилдОрсонОгноо);
+	        System.out.println("---");
+	    }
+	}
+
