@@ -1,0 +1,34 @@
+package lab10;
+
+public class Person {
+	    protected String овог;
+	    protected String нэр;
+	    protected String регистерийнДугаар;
+	    protected String төрсөнӨдөр;
+
+	    protected String getFullName(String овог, String нэр) {
+	        return нэр.substring(0,1) + "." + овог;
+	    }
+
+	    protected int getYear(String date) {
+	        String[] parts = date.split("[./-]");
+	        return Integer.parseInt(parts[0]);
+	    }
+
+	    protected int getMonth(String date) {
+	        String[] parts = date.split("[./-]");
+	        return Integer.parseInt(parts[1]);
+	    }
+
+	    protected int getDay(String date) {
+	        String[] parts = date.split("[./-]");
+	        return Integer.parseInt(parts[2]);
+	    }
+
+	    protected void info() {
+	        System.out.println("Хүн: " + getFullName(овог, нэр));
+	        System.out.println("Регистерийн дугаар: " + регистерийнДугаар);
+	        System.out.println("Төрсөн өдөр: " + төрсөнӨдөр + " (" + getYear(төрсөнӨдөр) + " он)");
+	    }
+	}
+
