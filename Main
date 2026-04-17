@@ -1,0 +1,36 @@
+package lab10;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {  // void main, Main биш!
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Нэр: ");
+        String овог = sc.nextLine();
+        
+        System.out.print("Овог: ");
+        String нэр = sc.nextLine();
+        
+        System.out.print("Регистерийн дугаар: ");
+        String регистерийнДугаар = sc.nextLine();
+        
+        System.out.print("Төрсөн өдөр (YYYY.MM.DD): ");
+        String төрсөнӨдөр = sc.nextLine();
+        
+        System.out.print("Ажилтны код: ");
+        String ажилтныКод = sc.nextLine();
+        
+        System.out.print("Салбарын нэр: ");
+        String салбарынНэр = sc.nextLine();
+        
+        System.out.print("Ажилд орсон огноо (YYYY.MM.DD): ");
+        String ажилдОрсонОгноо = sc.nextLine();
+        
+        sc.close();
+        
+        Worker worker1 = new Worker(овог, нэр, регистерийнДугаар, төрсөнӨдөр,
+                                   ажилтныКод, салбарынНэр, ажилдОрсонОгноо);
+        
+        worker1.info();
+    }
+}
